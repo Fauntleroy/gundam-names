@@ -1,0 +1,28 @@
+{
+  "name": "gundam-names",
+  "version": "1.0.0",
+  "description": "Repository and generator of Gundam character names.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate-names-json": "node scripts/generate-names-json.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fauntleroy/gundam-names.git"
+  },
+  "keywords": [
+    "gundam",
+    "names",
+    "amuro"
+  ],
+  "author": "Timothy Kempf <tim@kempf.dev>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Fauntleroy/gundam-names/issues"
+  },
+  "homepage": "https://github.com/Fauntleroy/gundam-names#readme",
+  "devDependencies": {
+    "csv-parse": "^4.16.0"
+  }
+}
