@@ -4,7 +4,7 @@ const parseSync = require('csv-parse/lib/sync');
 
 const data = {};
 const dataFiles = fs.readdirSync(`${process.cwd()}/data`);
-console.log('dataFiles', dataFiles)
+
 for (const dataFileName of dataFiles) {
   const dataFileContents = fs.readFileSync(`${process.cwd()}/data/${dataFileName}`);
   const namesToAdd = parseSync(dataFileContents);
@@ -12,7 +12,7 @@ for (const dataFileName of dataFiles) {
   data[sourceName] = namesToAdd;
 }
 
-const dataJson = JSON.stringify(data);
+const dataJson = JSON.stringify(data, null, 2);
 
 fs.writeFileSync(`${process.cwd()}/src/data.json`, dataJson);
 
