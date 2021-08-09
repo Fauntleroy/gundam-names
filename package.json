@@ -4,7 +4,8 @@
   "description": "Repository and generator of Gundam character names.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "test": "jest --verbose=false --runInBand",
     "generate-names-json": "node scripts/generate-names-json.js"
   },
   "repository": {
@@ -23,6 +24,12 @@
   },
   "homepage": "https://github.com/Fauntleroy/gundam-names#readme",
   "devDependencies": {
-    "csv-parse": "^4.16.0"
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "babel-jest": "^27.0.6",
+    "csv-parse": "^4.16.0",
+    "jest": "^27.0.6",
+    "rollup": "^2.56.0"
   }
 }

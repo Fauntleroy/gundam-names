@@ -16,4 +16,4 @@ const dataJson = JSON.stringify(data, null, 2);
 
 fs.writeFileSync(`${process.cwd()}/src/data.json`, dataJson);
 
-console.log(dataFiles);
+console.log('src/data.json generated successfully');
