@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
+import { svelteSVG } from 'rollup-plugin-svelte-svg';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -37,6 +38,18 @@ export default {
 		file: 'docs/index.js'
 	},
 	plugins: [
+    svelteSVG({
+      svgo: {
+        plugins: [
+          {
+            name: "addClassesToSVGElement",
+            params: {
+              classNames: ["icon"]
+            }
+          }
+        ]
+      }
+    }),
 		svelte({
 			compilerOptions: {
 				// enable run-time checks when not in production

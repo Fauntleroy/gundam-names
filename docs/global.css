@@ -41,8 +41,8 @@ input, button, select, textarea {
 	padding: 0.4em;
 	margin: 0 0 0.5em 0;
 	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 2px;
+	border: none;
+	border-radius: 5px;
 }
 
 input:disabled {
@@ -50,9 +50,18 @@ input:disabled {
 }
 
 button {
-	color: #333;
-	background-color: #f4f4f4;
+	color: #4455ff;
+	border: currentColor 1px dotted;
+	background: none;
 	outline: none;
+	cursor: pointer;
+	padding: 0.15rem 1.75rem;
+	transition: all 200ms;
+}
+
+button:hover {
+	transform: translateY(-10%);
+	color: #7e89ff;
 }
 
 button:disabled {
@@ -60,9 +69,15 @@ button:disabled {
 }
 
 button:not(:disabled):active {
-	background-color: #ddd;
+	border-style: solid;
+	transform: translateY(0);
+	transition: all 5ms;
 }
 
 button:focus {
-	border-color: #666;
+}
+
+.icon {
+	height: 1em;
+	vertical-align: -0.1em;
 }
