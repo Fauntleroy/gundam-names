@@ -28,9 +28,15 @@ export function generateName (options) {
     if (nameGroup[2]) lastNames.push(nameGroup[2]);
   }
 
+  const nameComponents = [];
+
   const firstName = sample(firstNames);
   const middleName = Math.random() > (1 - options.middleNameRarity) ? sample(middleNames) : null;
   const lastName = sample(lastNames);
 
-  return [firstName, middleName, lastName].join(' ');
+  if (firstName) nameComponents.push(firstName);
+  if (middleName) nameComponents.push(middleName);
+  if (lastName) nameComponents.push(lastName);
+
+  return nameComponents;
 }

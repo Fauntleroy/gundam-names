@@ -7,10 +7,10 @@
 	
 	import ArrowLoop from './icons/arrow-loop.svg';
 
-	let name = null;
+	let name = [];
 
 	function hangleRegenClick () {
-		name = null;
+		name = [];
 		setTimeout(() => { name = GundamNames.generateName(); }, 1000);
 	}
 
@@ -23,18 +23,16 @@
 	<section class="name-app">
 		<div class="greeting">Hello,</div>
 		<h1>
-			{#key name}
-				{#if name}
-					{#each name.split(' ') as nameSegment, i}
-						{#if nameSegment}
-							<div
-								in:fly={{ x: 25, duration: 200, easing: expoOut, delay: i * 100 }}
-								out:fly={{ x: 25, duration: 500, easing: expoIn, delay: i * 100 }}>
-								{nameSegment}
-							</div>
-						{/if}
-					{/each}
-				{/if}
+			{#key name.join(' ')}
+				{#each name as nameSegment, i}
+					{#if nameSegment}
+						<div
+							in:fly={{ x: 25, duration: 200, easing: expoOut, delay: i * 100 }}
+							out:fly={{ x: 25, duration: 500, easing: expoIn, delay: i * 100 }}>
+							{nameSegment}
+						</div>
+					{/if}
+				{/each}
 			{/key}
 		</h1>
 		<button class="regen" on:click={hangleRegenClick}>Regenerate <ArrowLoop /></button>
