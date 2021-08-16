@@ -14,7 +14,7 @@ html, body {
 }
 
 body {
-	color: #333;
+	color: #4455ff;;
 }
 
 a {
@@ -50,31 +50,34 @@ input:disabled {
 }
 
 button {
-	color: #4455ff;
-	border: currentColor 1px dotted;
-	background: none;
+	background: #4455ff;
+	color: #111833;
+	border: none;
 	outline: none;
 	cursor: pointer;
-	padding: 0.15rem 1.75rem;
+	padding: 0.25rem 2rem;
 	transition: all 200ms;
 }
 
 button:hover {
 	transform: translateY(-10%);
-	color: #7e89ff;
+	background: #7e89ff;
 }
 
 button:disabled {
-	color: #999;
+	background: #999;
 }
 
 button:not(:disabled):active {
-	border-style: solid;
 	transform: translateY(0);
 	transition: all 5ms;
 }
 
 button:focus {
+}
+
+button .icon {
+	margin-left: 0.5rem;
 }
 
 .icon {

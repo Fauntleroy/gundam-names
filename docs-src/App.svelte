@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { expoIn, expoOut } from 'svelte/easing';
 
@@ -6,18 +7,22 @@
 	
 	import ArrowLoop from './icons/arrow-loop.svg';
 
-	let name = GundamNames.generateName();
+	let name = null;
 
 	function hangleRegenClick () {
 		name = null;
 		setTimeout(() => { name = GundamNames.generateName(); }, 1000);
 	}
+
+	onMount(function handleMount () {
+		setTimeout(() => { name = GundamNames.generateName(); }, 750);
+	});
 </script>
 
 <main>
 	<section class="name-app">
+		<div class="greeting">Hello,</div>
 		<h1>
-			<small>Hello,</small>
 			{#key name}
 				{#if name}
 					{#each name.split(' ') as nameSegment, i}
@@ -32,7 +37,7 @@
 				{/if}
 			{/key}
 		</h1>
-		<button class="regen" on:click={hangleRegenClick}><ArrowLoop /></button>
+		<button class="regen" on:click={hangleRegenClick}>Regenerate <ArrowLoop /></button>
 	</section>
 </main>
 
@@ -48,12 +53,17 @@
 		background: #111833;
 	}
 
+	.greeting {
+		font-size: 1.5rem;
+	}
+
 	h1 {
 		color: #ff3e00;
 		text-transform: uppercase;
 		font-size: 4rem;
 		font-weight: 700;
 		letter-spacing: 0.05rem;
+		margin: 0.5rem 0;
 		height: 15rem;
 	}
 
@@ -65,12 +75,5 @@
 	.name-app {
 		width: 640px;
 		max-width: 100%;
-	}
-
-	.regen {
-		text-transform: uppercase;
-		font-weight: 500;
-		letter-spacing: 0.1rem;
-		font-size: 1.1rem;
 	}
 </style>
