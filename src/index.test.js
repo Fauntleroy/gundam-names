@@ -1,5 +1,5 @@
-import { generateRandomName } from './index.js';
+import { generateName } from './index.js';
 
 test('generates a random name', () => {
-  expect(generateRandomName()).toBe(3);
+  expect(generateName()).toBe(3);
 });

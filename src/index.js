@@ -5,7 +5,7 @@ function sample(array) {
   return length ? array[Math.floor(Math.random() * length)] : undefined
 }
 
-export function generateRandomName (options) {
+export function generateName (options) {
   options = { middleNameRarity: 0.01, ...options };
   let collection;
   if (options.collection) {
